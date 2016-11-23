@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		096664A3FC1D2B6F5B138F00 /* Pods_Pomodor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D94AF25D5AAACB28D41FE49 /* Pods_Pomodor.framework */; };
 		E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F231DE6371E006AC12E /* AppDelegate.swift */; };
-		E56F9F261DE6371E006AC12E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F251DE6371E006AC12E /* ViewController.swift */; };
 		E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F271DE6371E006AC12E /* Main.storyboard */; };
 		E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2A1DE6371E006AC12E /* Assets.xcassets */; };
 		E56F9F2E1DE6371E006AC12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2C1DE6371E006AC12E /* LaunchScreen.storyboard */; };
+		E56F9F3C1DE6391B006AC12E /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F3A1DE6391B006AC12E /* ProximaNova-Semibold.otf */; };
+		E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F3B1DE6391B006AC12E /* ProximaNova-Regular.otf */; };
+		E56F9F451DE64CF1006AC12E /* TaskCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */; };
+		E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F461DE64D05006AC12E /* HomeNavigationController.swift */; };
+		E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F481DE64D11006AC12E /* HomeNavBar.swift */; };
+		E56F9F4C1DE64D88006AC12E /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */; };
+		E56F9F4F1DE64DB2006AC12E /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */; };
+		E56F9F531DE64DF1006AC12E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F521DE64DF1006AC12E /* Constants.swift */; };
+		E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F541DE64F13006AC12E /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +29,19 @@
 		D94E9055A41F9A96C8DF44E6 /* Pods-Pomodor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodor/Pods-Pomodor.debug.xcconfig"; sourceTree = "<group>"; };
 		E56F9F201DE6371E006AC12E /* Pomodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56F9F231DE6371E006AC12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E56F9F251DE6371E006AC12E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E56F9F281DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E56F9F2A1DE6371E006AC12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E56F9F2D1DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E56F9F2F1DE6371E006AC12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56F9F3A1DE6391B006AC12E /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		E56F9F3B1DE6391B006AC12E /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCellTableViewCell.swift; sourceTree = "<group>"; };
+		E56F9F461DE64D05006AC12E /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		E56F9F481DE64D11006AC12E /* HomeNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavBar.swift; sourceTree = "<group>"; };
+		E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
+		E56F9F521DE64DF1006AC12E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E56F9F541DE64F13006AC12E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +95,101 @@
 			isa = PBXGroup;
 			children = (
 				E56F9F231DE6371E006AC12E /* AppDelegate.swift */,
-				E56F9F251DE6371E006AC12E /* ViewController.swift */,
-				E56F9F271DE6371E006AC12E /* Main.storyboard */,
-				E56F9F2A1DE6371E006AC12E /* Assets.xcassets */,
-				E56F9F2C1DE6371E006AC12E /* LaunchScreen.storyboard */,
-				E56F9F2F1DE6371E006AC12E /* Info.plist */,
+				E56F9F4A1DE64D70006AC12E /* Categories */,
+				E56F9F3F1DE64CB7006AC12E /* Components */,
+				E56F9F501DE64DDA006AC12E /* Constants */,
+				E56F9F381DE63869006AC12E /* Controllers */,
+				E56F9F361DE6385C006AC12E /* Resources */,
+				E56F9F391DE6386C006AC12E /* View Controllers */,
+				E56F9F351DE63857006AC12E /* Views */,
 			);
 			path = Pomodor;
+			sourceTree = "<group>";
+		};
+		E56F9F351DE63857006AC12E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F2C1DE6371E006AC12E /* LaunchScreen.storyboard */,
+				E56F9F271DE6371E006AC12E /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E56F9F361DE6385C006AC12E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F2A1DE6371E006AC12E /* Assets.xcassets */,
+				E56F9F371DE63861006AC12E /* Fonts */,
+				E56F9F2F1DE6371E006AC12E /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E56F9F371DE63861006AC12E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F3B1DE6391B006AC12E /* ProximaNova-Regular.otf */,
+				E56F9F3A1DE6391B006AC12E /* ProximaNova-Semibold.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		E56F9F381DE63869006AC12E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E56F9F391DE6386C006AC12E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F3E1DE64CB3006AC12E /* Base */,
+				E56F9F431DE64CDB006AC12E /* Cells */,
+				E56F9F541DE64F13006AC12E /* HomeViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E56F9F3E1DE64CB3006AC12E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F461DE64D05006AC12E /* HomeNavigationController.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		E56F9F3F1DE64CB7006AC12E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F481DE64D11006AC12E /* HomeNavBar.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		E56F9F431DE64CDB006AC12E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E56F9F4A1DE64D70006AC12E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */,
+				E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		E56F9F501DE64DDA006AC12E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F521DE64DF1006AC12E /* Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56F9F2E1DE6371E006AC12E /* LaunchScreen.storyboard in Resources */,
+				E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */,
 				E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */,
 				E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */,
+				E56F9F3C1DE6391B006AC12E /* ProximaNova-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +318,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56F9F261DE6371E006AC12E /* ViewController.swift in Sources */,
 				E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */,
+				E56F9F451DE64CF1006AC12E /* TaskCellTableViewCell.swift in Sources */,
+				E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */,
+				E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */,
+				E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */,
+				E56F9F4C1DE64D88006AC12E /* UIColor+Additions.swift in Sources */,
+				E56F9F4F1DE64DB2006AC12E /* UIFont+Additions.swift in Sources */,
+				E56F9F531DE64DF1006AC12E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,10 +447,12 @@
 			baseConfigurationReference = D94E9055A41F9A96C8DF44E6 /* Pods-Pomodor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 6VCHDS2F27;
 				INFOPLIST_FILE = Pomodor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pomodoro.timer.Pomodor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodoro.timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -349,10 +463,12 @@
 			baseConfigurationReference = 9D10F0C84FB9ADCB3315CA92 /* Pods-Pomodor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 6VCHDS2F27;
 				INFOPLIST_FILE = Pomodor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pomodoro.timer.Pomodor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodoro.timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -377,6 +493,7 @@
 				E56F9F341DE6371E006AC12E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
