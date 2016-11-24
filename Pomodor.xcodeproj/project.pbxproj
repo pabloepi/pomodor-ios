@@ -8,25 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		096664A3FC1D2B6F5B138F00 /* Pods_Pomodor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D94AF25D5AAACB28D41FE49 /* Pods_Pomodor.framework */; };
+		E5024CDB1DE697A5000DE95D /* UIAlertController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDA1DE697A5000DE95D /* UIAlertController+Additions.swift */; };
+		E5024CDD1DE69C39000DE95D /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDC1DE69C39000DE95D /* UIButton+Additions.swift */; };
+		E5024CDF1DE69D40000DE95D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDE1DE69D40000DE95D /* DatabaseController.swift */; };
+		E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CE01DE6AC58000DE95D /* HeaderView.swift */; };
 		E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F231DE6371E006AC12E /* AppDelegate.swift */; };
 		E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F271DE6371E006AC12E /* Main.storyboard */; };
 		E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2A1DE6371E006AC12E /* Assets.xcassets */; };
 		E56F9F2E1DE6371E006AC12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2C1DE6371E006AC12E /* LaunchScreen.storyboard */; };
 		E56F9F3C1DE6391B006AC12E /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F3A1DE6391B006AC12E /* ProximaNova-Semibold.otf */; };
 		E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F3B1DE6391B006AC12E /* ProximaNova-Regular.otf */; };
-		E56F9F451DE64CF1006AC12E /* TaskCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */; };
 		E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F461DE64D05006AC12E /* HomeNavigationController.swift */; };
 		E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F481DE64D11006AC12E /* HomeNavBar.swift */; };
 		E56F9F4C1DE64D88006AC12E /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */; };
 		E56F9F4F1DE64DB2006AC12E /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */; };
 		E56F9F531DE64DF1006AC12E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F521DE64DF1006AC12E /* Constants.swift */; };
 		E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F541DE64F13006AC12E /* HomeViewController.swift */; };
+		E56F9F571DE6672C006AC12E /* TableEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F561DE6672C006AC12E /* TableEmptyView.xib */; };
+		E56F9F591DE66894006AC12E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F581DE66894006AC12E /* TaskCell.swift */; };
+		E56F9F5E1DE66C54006AC12E /* Pomodor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F5C1DE66C54006AC12E /* Pomodor.xcdatamodeld */; };
+		E56F9F691DE66DAC006AC12E /* StartupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F681DE66DAC006AC12E /* StartupController.swift */; };
+		E56F9F6F1DE67A24006AC12E /* UILabel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */; };
+		E56F9F721DE67D32006AC12E /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */; };
+		E56F9F731DE67D32006AC12E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D94AF25D5AAACB28D41FE49 /* Pods_Pomodor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D10F0C84FB9ADCB3315CA92 /* Pods-Pomodor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodor/Pods-Pomodor.release.xcconfig"; sourceTree = "<group>"; };
 		D94E9055A41F9A96C8DF44E6 /* Pods-Pomodor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodor/Pods-Pomodor.debug.xcconfig"; sourceTree = "<group>"; };
+		E5024CDA1DE697A5000DE95D /* UIAlertController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Additions.swift"; sourceTree = "<group>"; };
+		E5024CDC1DE69C39000DE95D /* UIButton+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
+		E5024CDE1DE69D40000DE95D /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		E5024CE01DE6AC58000DE95D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E56F9F201DE6371E006AC12E /* Pomodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56F9F231DE6371E006AC12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E56F9F281DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,13 +49,19 @@
 		E56F9F2F1DE6371E006AC12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E56F9F3A1DE6391B006AC12E /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		E56F9F3B1DE6391B006AC12E /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
-		E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCellTableViewCell.swift; sourceTree = "<group>"; };
 		E56F9F461DE64D05006AC12E /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		E56F9F481DE64D11006AC12E /* HomeNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavBar.swift; sourceTree = "<group>"; };
 		E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		E56F9F521DE64DF1006AC12E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E56F9F541DE64F13006AC12E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E56F9F561DE6672C006AC12E /* TableEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableEmptyView.xib; sourceTree = "<group>"; };
+		E56F9F581DE66894006AC12E /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		E56F9F5D1DE66C54006AC12E /* Pomodor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pomodor.xcdatamodel; sourceTree = "<group>"; };
+		E56F9F681DE66DAC006AC12E /* StartupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupController.swift; sourceTree = "<group>"; };
+		E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Additions.swift"; sourceTree = "<group>"; };
+		E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,7 @@
 				E56F9F3F1DE64CB7006AC12E /* Components */,
 				E56F9F501DE64DDA006AC12E /* Constants */,
 				E56F9F381DE63869006AC12E /* Controllers */,
+				E56F9F5A1DE66C36006AC12E /* Models */,
 				E56F9F361DE6385C006AC12E /* Resources */,
 				E56F9F391DE6386C006AC12E /* View Controllers */,
 				E56F9F351DE63857006AC12E /* Views */,
@@ -111,6 +132,7 @@
 			children = (
 				E56F9F2C1DE6371E006AC12E /* LaunchScreen.storyboard */,
 				E56F9F271DE6371E006AC12E /* Main.storyboard */,
+				E56F9F561DE6672C006AC12E /* TableEmptyView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -121,6 +143,7 @@
 				E56F9F2A1DE6371E006AC12E /* Assets.xcassets */,
 				E56F9F371DE63861006AC12E /* Fonts */,
 				E56F9F2F1DE6371E006AC12E /* Info.plist */,
+				E56F9F5C1DE66C54006AC12E /* Pomodor.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -137,6 +160,8 @@
 		E56F9F381DE63869006AC12E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5024CDE1DE69D40000DE95D /* DatabaseController.swift */,
+				E56F9F681DE66DAC006AC12E /* StartupController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -163,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				E56F9F481DE64D11006AC12E /* HomeNavBar.swift */,
+				E5024CE01DE6AC58000DE95D /* HeaderView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -170,7 +196,7 @@
 		E56F9F431DE64CDB006AC12E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E56F9F441DE64CF1006AC12E /* TaskCellTableViewCell.swift */,
+				E56F9F581DE66894006AC12E /* TaskCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -178,8 +204,11 @@
 		E56F9F4A1DE64D70006AC12E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E5024CDA1DE697A5000DE95D /* UIAlertController+Additions.swift */,
+				E5024CDC1DE69C39000DE95D /* UIButton+Additions.swift */,
 				E56F9F4B1DE64D88006AC12E /* UIColor+Additions.swift */,
 				E56F9F4E1DE64DB2006AC12E /* UIFont+Additions.swift */,
+				E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -190,6 +219,15 @@
 				E56F9F521DE64DF1006AC12E /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		E56F9F5A1DE66C36006AC12E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */,
+				E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56F9F2E1DE6371E006AC12E /* LaunchScreen.storyboard in Resources */,
+				E56F9F571DE6672C006AC12E /* TableEmptyView.xib in Resources */,
 				E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */,
 				E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */,
 				E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */,
@@ -319,12 +358,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */,
-				E56F9F451DE64CF1006AC12E /* TaskCellTableViewCell.swift in Sources */,
+				E56F9F691DE66DAC006AC12E /* StartupController.swift in Sources */,
+				E56F9F6F1DE67A24006AC12E /* UILabel+Additions.swift in Sources */,
+				E5024CDD1DE69C39000DE95D /* UIButton+Additions.swift in Sources */,
+				E56F9F5E1DE66C54006AC12E /* Pomodor.xcdatamodeld in Sources */,
 				E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */,
+				E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */,
 				E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */,
 				E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */,
+				E56F9F591DE66894006AC12E /* TaskCell.swift in Sources */,
+				E5024CDB1DE697A5000DE95D /* UIAlertController+Additions.swift in Sources */,
 				E56F9F4C1DE64D88006AC12E /* UIColor+Additions.swift in Sources */,
 				E56F9F4F1DE64DB2006AC12E /* UIFont+Additions.swift in Sources */,
+				E5024CDF1DE69D40000DE95D /* DatabaseController.swift in Sources */,
+				E56F9F731DE67D32006AC12E /* Task+CoreDataProperties.swift in Sources */,
+				E56F9F721DE67D32006AC12E /* Task+CoreDataClass.swift in Sources */,
 				E56F9F531DE64DF1006AC12E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +544,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E56F9F5C1DE66C54006AC12E /* Pomodor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E56F9F5D1DE66C54006AC12E /* Pomodor.xcdatamodel */,
+			);
+			currentVersion = E56F9F5D1DE66C54006AC12E /* Pomodor.xcdatamodel */;
+			path = Pomodor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E56F9F181DE6371E006AC12E /* Project object */;
 }
