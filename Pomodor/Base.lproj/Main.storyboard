@@ -31,7 +31,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwc-72-Qjk" customClass="HeaderView" customModule="Pomodor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="397"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSk-Tl-zIW">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSk-Tl-zIW" customClass="ControlsView" customModule="Pomodor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="337" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHC-HA-sZ8">
@@ -78,6 +78,11 @@
                                             <constraint firstItem="BHC-HA-sZ8" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="dth-hm-yds"/>
                                             <constraint firstItem="0ti-de-1xb" firstAttribute="leading" secondItem="NSk-Tl-zIW" secondAttribute="leading" constant="10" id="gjM-YD-TW7"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="resetButton" destination="BHC-HA-sZ8" id="c0H-fk-9CO"/>
+                                            <outlet property="startButton" destination="0ti-de-1xb" id="zmv-pj-lbn"/>
+                                            <outlet property="stopButton" destination="rAw-e4-U6B" id="cio-ZW-lNc"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-b5-lKP">
                                         <rect key="frame" x="51" y="125" width="272" height="128"/>
@@ -164,6 +169,11 @@
                                     <constraint firstItem="HHO-b5-lKP" firstAttribute="centerY" secondItem="rwc-72-Qjk" secondAttribute="centerY" constant="-9.5" id="fhs-1y-3G0"/>
                                     <constraint firstItem="HHO-b5-lKP" firstAttribute="centerX" secondItem="rwc-72-Qjk" secondAttribute="centerX" id="za0-gx-yTN"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="completeLabel" destination="JxQ-VN-zMu" id="Rb5-nc-EYc"/>
+                                    <outlet property="minutesLabel" destination="U3h-Uv-fDQ" id="bcU-ZW-h2a"/>
+                                    <outlet property="secondsLabel" destination="Pn1-ip-Lpu" id="2pG-3G-gbZ"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fhl-rV-dLm">
                                 <rect key="frame" x="0.0" y="397" width="375" height="270"/>
@@ -225,6 +235,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="completedImageView" destination="fNz-ei-pnO" id="ty2-Co-utn"/>
+                                            <outlet property="nameLabel" destination="3sw-DV-fbX" id="Onb-6O-ulm"/>
+                                            <outlet property="remainingTimeLabel" destination="0k8-D7-UUu" id="jAf-Ah-cgp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -260,13 +275,8 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="completeLabel" destination="JxQ-VN-zMu" id="BZq-Vj-grU"/>
+                        <outlet property="controlsView" destination="NSk-Tl-zIW" id="mqD-Qn-oxr"/>
                         <outlet property="headerView" destination="rwc-72-Qjk" id="tAw-At-04D"/>
-                        <outlet property="minutesLabel" destination="U3h-Uv-fDQ" id="wPK-bn-fH5"/>
-                        <outlet property="resetButton" destination="BHC-HA-sZ8" id="SIO-7d-EKH"/>
-                        <outlet property="secondsLabel" destination="Pn1-ip-Lpu" id="VLH-0f-lbC"/>
-                        <outlet property="startButton" destination="0ti-de-1xb" id="lch-eE-fRl"/>
-                        <outlet property="stopButton" destination="rAw-e4-U6B" id="lqG-pa-fC7"/>
                         <outlet property="tableView" destination="Fhl-rV-dLm" id="22u-5N-lPO"/>
                     </connections>
                 </viewController>
@@ -279,7 +289,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5v-Uj-rAG" customClass="HomeNavigationController" customModule="Pomodor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

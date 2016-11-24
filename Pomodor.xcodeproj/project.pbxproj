@@ -31,6 +31,7 @@
 		E56F9F6F1DE67A24006AC12E /* UILabel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */; };
 		E56F9F721DE67D32006AC12E /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */; };
 		E56F9F731DE67D32006AC12E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */; };
+		E5EEE60E1DE750230075D2B6 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEE60D1DE750230075D2B6 /* ControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Additions.swift"; sourceTree = "<group>"; };
 		E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E5EEE60D1DE750230075D2B6 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +189,9 @@
 		E56F9F3F1DE64CB7006AC12E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E56F9F481DE64D11006AC12E /* HomeNavBar.swift */,
+				E5EEE60D1DE750230075D2B6 /* ControlsView.swift */,
 				E5024CE01DE6AC58000DE95D /* HeaderView.swift */,
+				E56F9F481DE64D11006AC12E /* HomeNavBar.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */,
 				E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */,
 				E56F9F591DE66894006AC12E /* TaskCell.swift in Sources */,
+				E5EEE60E1DE750230075D2B6 /* ControlsView.swift in Sources */,
 				E5024CDB1DE697A5000DE95D /* UIAlertController+Additions.swift in Sources */,
 				E56F9F4C1DE64D88006AC12E /* UIColor+Additions.swift in Sources */,
 				E56F9F4F1DE64DB2006AC12E /* UIFont+Additions.swift in Sources */,

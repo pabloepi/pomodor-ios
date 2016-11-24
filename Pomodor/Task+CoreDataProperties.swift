@@ -16,10 +16,10 @@ extension Task {
         return NSFetchRequest<Task>(entityName: "Task");
     }
 
+    @NSManaged public var completed: Bool
     @NSManaged public var createdAt: NSDate?
     @NSManaged public var name: String?
-    @NSManaged public var remainingTime: Float
+    @NSManaged public var remainingTime: Double
     @NSManaged public var taskId: String?
-    @NSManaged public var completed: Bool
 
 }

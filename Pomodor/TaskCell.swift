@@ -19,7 +19,7 @@ class TaskCell: UITableViewCell {
         
         didSet {
             
-            self.nameLabel.text           = task.name!
+            self.nameLabel.text           = self.task.name
             self.completedImageView.alpha = self.task.completed ? 1.0 : 0.0
             self.remainingTimeLabel.alpha = self.task.completed ? 0.0 : 1.0
             

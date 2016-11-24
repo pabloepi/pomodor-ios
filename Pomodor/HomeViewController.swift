@@ -11,18 +11,10 @@ import UITableView_NXEmptyView
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet fileprivate weak var headerView: HeaderView!
+    @IBOutlet fileprivate weak var headerView:   HeaderView!
+    @IBOutlet fileprivate weak var controlsView: ControlsView!
     
     @IBOutlet fileprivate weak var tableView: UITableView!
-    
-    @IBOutlet fileprivate weak var minutesLabel: UILabel!
-    @IBOutlet fileprivate weak var secondsLabel: UILabel!
-    
-    @IBOutlet fileprivate weak var completeLabel: UILabel!
-    
-    @IBOutlet fileprivate weak var resetButton: UIButton!
-    @IBOutlet fileprivate weak var stopButton:  UIButton!
-    @IBOutlet fileprivate weak var startButton: UIButton!
     
     fileprivate var tasks: Array<Task> {
         
@@ -35,20 +27,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.title = "Working Task"
         
-        
-        self.minutesLabel.setLetterSpacing(spacing: -2.00)
-        self.secondsLabel.setLetterSpacing(spacing: -2.00)
-        
-        self.stopButton.disableButton()
-        self.startButton.disableButton()
-        self.resetButton.disableButton()
-        
         self.tableView.nxEV_emptyView = emptyView()
         
         if self.tasks.count <= 0 {
             
             self.navigationItem.leftBarButtonItem?.isEnabled = false
         }
+        
+        checkIfHasTasksStored()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,19 +56,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                        style: .default,
                                        handler: { action -> Void in
                                         
-                                        let firstTextField = alert.textFields![0] as UITextField
+                                        let textField = alert.textFields![0] as UITextField
                                         
-                                        let task = Task.mr_createEntity()
-                                        
-                                        task?.taskId        = NSUUID().uuidString
-                                        task?.name          = firstTextField.text
-                                        task?.remainingTime = 20 * 60
-                                        task?.createdAt     = NSDate()
-                                        task?.completed     = false
-          
-                                        DatabaseController.persist()
+                                        let newTask = self.createAndSaveTask(name: textField.text!)
                                         
                                         self.tableView.reloadData()
+                                        
+                                        if self.tasks.count == 1 { // Should check: If not running state on current session
+                                            
+                                            self.headerView.taskPaused(remainingTime: (newTask?.remainingTime)!)
+                                            self.controlsView.taskPaused()
+                                        }
                                         
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
         })
@@ -105,7 +89,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alert,
                      animated: true,
                      completion: {
-            
+                        
                         self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
     }
@@ -123,6 +107,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             DatabaseController.persist()
             
             self.tableView.reloadData()
+            
+            self.headerView.noTasks()
+            self.controlsView.noTasks()
         }
         
         let keepAction = { (action: UIAlertAction) -> Void in
@@ -142,11 +129,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 completion: .none)
     }
     
+    // MARK: - Private Methods
+    
+    fileprivate func createAndSaveTask(name: String) -> Task? {
+        
+        let task = Task.mr_createEntity()
+        
+        task?.taskId        = NSUUID().uuidString
+        task?.name          = name
+        task?.remainingTime = Double(20.00 * 60.00)
+        task?.createdAt     = NSDate()
+        task?.completed     = false
+        
+        DatabaseController.persist()
+        
+        return task
+    }
+    
+    fileprivate func checkIfHasTasksStored() {
+        
+        if self.tasks.count == 0 {
+            
+            self.headerView.noTasks()
+            self.controlsView.noTasks()
+            
+        } else {
+         
+            let firstTask = Task.mr_findFirst()
+
+            self.headerView.taskPaused(remainingTime: (firstTask?.remainingTime)!)
+            self.controlsView.taskPaused()
+        }
+    }
+    
     // MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        (cell as! TaskCell).task = self.tasks[indexPath.row]
+        let task = self.tasks[indexPath.row]
+        
+        (cell as! TaskCell).task = task
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
