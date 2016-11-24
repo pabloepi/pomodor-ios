@@ -29,10 +29,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwc-72-Qjk" customClass="HeaderView" customModule="Pomodor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="397"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSk-Tl-zIW" customClass="ControlsView" customModule="Pomodor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="337" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="274" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHC-HA-sZ8">
                                                 <rect key="frame" x="275" y="12" width="90" height="37"/>
@@ -70,13 +70,13 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="5KR-em-8Wb"/>
-                                            <constraint firstItem="rAw-e4-U6B" firstAttribute="centerX" secondItem="NSk-Tl-zIW" secondAttribute="centerX" id="6jD-rj-cil"/>
-                                            <constraint firstAttribute="trailing" secondItem="BHC-HA-sZ8" secondAttribute="trailing" constant="10" id="81O-4e-MbV"/>
-                                            <constraint firstItem="rAw-e4-U6B" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="DkK-eW-6Wy"/>
-                                            <constraint firstItem="0ti-de-1xb" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="ZNH-7b-5Vu"/>
-                                            <constraint firstItem="BHC-HA-sZ8" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="dth-hm-yds"/>
-                                            <constraint firstItem="0ti-de-1xb" firstAttribute="leading" secondItem="NSk-Tl-zIW" secondAttribute="leading" constant="10" id="gjM-YD-TW7"/>
+                                            <constraint firstItem="0ti-de-1xb" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="1b4-im-N2W"/>
+                                            <constraint firstItem="rAw-e4-U6B" firstAttribute="centerX" secondItem="NSk-Tl-zIW" secondAttribute="centerX" id="2aU-Vh-Bq4"/>
+                                            <constraint firstItem="rAw-e4-U6B" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="HgE-mY-m3H"/>
+                                            <constraint firstAttribute="trailing" secondItem="BHC-HA-sZ8" secondAttribute="trailing" constant="10" id="fwk-ap-noJ"/>
+                                            <constraint firstItem="0ti-de-1xb" firstAttribute="leading" secondItem="NSk-Tl-zIW" secondAttribute="leading" constant="10" id="gGs-tw-x0x"/>
+                                            <constraint firstItem="BHC-HA-sZ8" firstAttribute="centerY" secondItem="NSk-Tl-zIW" secondAttribute="centerY" id="nLE-kW-Xlr"/>
+                                            <constraint firstAttribute="height" constant="60" id="rw9-d8-eqU"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="resetButton" destination="BHC-HA-sZ8" id="c0H-fk-9CO"/>
@@ -85,7 +85,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-b5-lKP">
-                                        <rect key="frame" x="51" y="125" width="272" height="128"/>
+                                        <rect key="frame" x="51" y="103" width="272" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3h-Uv-fDQ">
                                                 <rect key="frame" x="4" y="17" width="122" height="74"/>
@@ -163,10 +163,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NSk-Tl-zIW" secondAttribute="trailing" id="Efj-t5-adJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="NSk-Tl-zIW" secondAttribute="bottom" id="Hv2-25-dDt"/>
-                                    <constraint firstItem="NSk-Tl-zIW" firstAttribute="leading" secondItem="rwc-72-Qjk" secondAttribute="leading" id="IlV-nP-c4b"/>
-                                    <constraint firstItem="HHO-b5-lKP" firstAttribute="centerY" secondItem="rwc-72-Qjk" secondAttribute="centerY" constant="-9.5" id="fhs-1y-3G0"/>
+                                    <constraint firstItem="NSk-Tl-zIW" firstAttribute="leading" secondItem="rwc-72-Qjk" secondAttribute="leading" id="4XQ-uQ-liA"/>
+                                    <constraint firstAttribute="trailing" secondItem="NSk-Tl-zIW" secondAttribute="trailing" id="FEO-eD-ktW"/>
+                                    <constraint firstItem="HHO-b5-lKP" firstAttribute="centerY" secondItem="rwc-72-Qjk" secondAttribute="centerY" id="fhs-1y-3G0"/>
+                                    <constraint firstAttribute="height" constant="334" id="mme-d8-em4"/>
+                                    <constraint firstAttribute="bottom" secondItem="NSk-Tl-zIW" secondAttribute="bottom" id="ygr-4u-THr"/>
                                     <constraint firstItem="HHO-b5-lKP" firstAttribute="centerX" secondItem="rwc-72-Qjk" secondAttribute="centerX" id="za0-gx-yTN"/>
                                 </constraints>
                                 <connections>
@@ -176,7 +177,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fhl-rV-dLm">
-                                <rect key="frame" x="0.0" y="397" width="375" height="270"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="333"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="70" id="HTL-Ae-XoY" customClass="TaskCell" customModule="Pomodor" customModuleProvider="target">
@@ -253,7 +254,6 @@
                             <constraint firstAttribute="trailing" secondItem="Fhl-rV-dLm" secondAttribute="trailing" id="3ID-hV-z7w"/>
                             <constraint firstAttribute="trailing" secondItem="rwc-72-Qjk" secondAttribute="trailing" id="42Q-hn-Yeg"/>
                             <constraint firstItem="Fhl-rV-dLm" firstAttribute="top" secondItem="rwc-72-Qjk" secondAttribute="bottom" id="4j5-n4-L26"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rwc-72-Qjk" secondAttribute="bottom" constant="270" id="X8s-o1-eCJ"/>
                             <constraint firstItem="rwc-72-Qjk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="XkJ-kK-nWX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fhl-rV-dLm" secondAttribute="bottom" id="lzP-8v-AJc"/>
                             <constraint firstItem="Fhl-rV-dLm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r6W-pX-A5k"/>
