@@ -124,6 +124,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             self.title = self.noTasksTitle
             
+            CountdownTimerController.sharedInstance.stopCountdown()
+            
             Task.mr_truncateAll()
             
             Session.currentSession().activeTask = .none
@@ -306,16 +308,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cellIndexPath = tableView.indexPath(for: cell)
             let task          = self.tasks[(cellIndexPath?.row)!]
             
-            if Session.currentSession().activeTask != .none {
+            if (Session.currentSession().activeTask != .none &&
+                (Session.currentSession().activeTask?.isEqual(task))!) {
                 
-                if (Session.currentSession().activeTask?.isEqual(task))! {
+                if (cellIndexPath?.row == self.index) {
                     
-                     (cell as! TaskCell).activeTask()
+                    (cell as! TaskCell).activeTask()
                     
                 } else {
-                 
-                     (cell as! TaskCell).activeTaskNotCurrent()
                     
+                    (cell as! TaskCell).activeTaskNotCurrent()
                 }
             } else if cellIndexPath?.row == indexPath.row {
                 
@@ -325,6 +327,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 (cell as! TaskCell).currentTask(isCurrent: false)
             }
+        }
+        
+        let task = self.tasks[self.index]
+        
+        if task.completed {
+            
+            self.headerView.taskCompleted()
+            self.controlsView.taskCompleted()
+            
+            return
+        }
+        
+        if (Session.currentSession().activeTask != .none &&
+            (Session.currentSession().activeTask?.isEqual(task))!) {
+            
+            self.headerView.taskRunning(remainingTime: task.remainingTime)
+            self.controlsView.taskRunning()
+            
+        } else {
+            
+            self.headerView.taskPaused(remainingTime: task.remainingTime)
+            self.controlsView.taskPaused()
         }
     }
     
