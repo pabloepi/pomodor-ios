@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  Pomodor
 //
-//  Created by Pablo on 11/24/16.
+//  Created by Pablo on 11/25/16.
 //  Copyright © 2016 Pomodor. All rights reserved.
 //
 

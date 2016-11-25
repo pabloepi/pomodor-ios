@@ -14,14 +14,44 @@ class ControlsView: UIView {
     @IBOutlet fileprivate weak var stopButton:  UIButton!
     @IBOutlet fileprivate weak var startButton: UIButton!
     
+    var didTouchStart: (() -> Void)?
+    var didTouchStop:  (() -> Void)?
+    var didTouchReset: (() -> Void)?
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
+        
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        
+        setup()
+    }
+    
+    fileprivate func setup() {
+        
+        resetButton.addTarget(self, action: #selector(ControlsView.resetTouchUpInside), for: .touchUpInside)
+        stopButton.addTarget(self,  action: #selector(ControlsView.stopTouchUpInside),  for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(ControlsView.startTouchUpInside), for: .touchUpInside)
+    }
+    
+    @objc fileprivate func resetTouchUpInside() {
+        
+        didTouchReset?()
+    }
+    
+    @objc fileprivate func stopTouchUpInside()  {
+        
+        didTouchStop?()
+    }
+    
+    @objc fileprivate func startTouchUpInside() {
+        
+        didTouchStart?()
     }
     
     func noTasks() {

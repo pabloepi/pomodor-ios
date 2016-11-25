@@ -32,12 +32,12 @@ extension UIColor {
     
     class func pdrDarkBlueTopColor() -> UIColor {
         
-        return UIColor(red:0.17, green:0.15, blue:0.41, alpha:1)
+        return UIColor(red:0.15, green:0.39, blue:0.4, alpha:1)
     }
     
     class func pdrDarkBlueBottomColor() -> UIColor {
         
-        return UIColor(red:0.32, green:0.24, blue:0.49, alpha:1)
+        return UIColor(red:0.31, green:0.24, blue:0.49, alpha:1)
     }
     
     // MARK: - Header Running Task Colors

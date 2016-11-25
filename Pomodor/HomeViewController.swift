@@ -34,7 +34,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationItem.leftBarButtonItem?.isEnabled = false
         }
         
-        checkIfHasTasksStored()
+        setupControlsViewBlocks()
+        checkIfActiveTask()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,24 +59,34 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         let textField = alert.textFields![0] as UITextField
                                         
-                                        let newTask = self.createAndSaveTask(name: textField.text!)
+                                        let task = Task.task(textField.text!)
                                         
                                         self.tableView.reloadData()
                                         
-                                        if self.tasks.count == 1 { // Should check: If not running state on current session
-                                            
-                                            self.headerView.taskPaused(remainingTime: (newTask?.remainingTime)!)
-                                            self.controlsView.taskPaused()
-                                        }
-                                        
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
+                                        
+                                        if Session.currentSession().activeTask != nil { return }
+                                        
+                                        self.headerView.taskPaused(remainingTime: (task?.remainingTime)!)
+                                        self.controlsView.taskPaused()
+                                        
         })
+        
+        saveAction.isEnabled = false
         
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .cancel,
                                          handler:.none)
         
         alert.addTextField { (textField : UITextField!) -> Void in
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UITextFieldTextDidChangeNotification"),
+                                                   object: textField,
+                                                   queue: OperationQueue.main,
+                                                   using: { notification in
+                                                    
+                                                    saveAction.isEnabled = !(textField.text?.isEmpty)!
+            })
             
             textField.keyboardType           = .default
             textField.spellCheckingType      = .default
@@ -131,22 +142,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Private Methods
     
-    fileprivate func createAndSaveTask(name: String) -> Task? {
+    fileprivate func setupControlsViewBlocks() {
         
-        let task = Task.mr_createEntity()
+        self.controlsView.didTouchReset = {
+            
+            let index = self.tableView.indexPathForSelectedRow?.row
+            
+            let currentTask = self.tasks[index!]
+            
+            currentTask.reset()
+            
+            self.controlsView.taskPaused()
+            self.headerView.taskPaused(remainingTime: currentTask.remainingTime)
+            
+            if currentTask.isEqual(Session.currentSession().activeTask) {
+                
+                Session.currentSession().activeTask = .none
+            }
+            
+            DatabaseController.persist()
+        }
         
-        task?.taskId        = NSUUID().uuidString
-        task?.name          = name
-        task?.remainingTime = Double(20.00 * 60.00)
-        task?.createdAt     = NSDate()
-        task?.completed     = false
+        self.controlsView.didTouchStop  = {
+            
+            
+        }
         
-        DatabaseController.persist()
-        
-        return task
+        self.controlsView.didTouchStart = {
+            
+            
+        }
     }
     
-    fileprivate func checkIfHasTasksStored() {
+    fileprivate func checkIfActiveTask() {
+        
+        if let activeTask = Session.currentSession().activeTask {
+            
+            self.headerView.taskRunning(remainingTime: activeTask.remainingTime)
+            self.controlsView.taskRunning()
+            
+            return
+        }
         
         if self.tasks.count == 0 {
             
@@ -154,9 +190,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.controlsView.noTasks()
             
         } else {
-         
+            
             let firstTask = Task.mr_findFirst()
-
+            
+            if (firstTask?.completed)! {
+                
+                self.headerView.taskCompleted()
+                self.controlsView.taskCompleted()
+                
+                return
+            }
+            
             self.headerView.taskPaused(remainingTime: (firstTask?.remainingTime)!)
             self.controlsView.taskPaused()
         }

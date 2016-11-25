@@ -85,7 +85,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-b5-lKP">
-                                        <rect key="frame" x="51" y="103" width="272" height="128"/>
+                                        <rect key="frame" x="51" y="97" width="272" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3h-Uv-fDQ">
                                                 <rect key="frame" x="4" y="17" width="122" height="74"/>
@@ -165,7 +165,7 @@
                                 <constraints>
                                     <constraint firstItem="NSk-Tl-zIW" firstAttribute="leading" secondItem="rwc-72-Qjk" secondAttribute="leading" id="4XQ-uQ-liA"/>
                                     <constraint firstAttribute="trailing" secondItem="NSk-Tl-zIW" secondAttribute="trailing" id="FEO-eD-ktW"/>
-                                    <constraint firstItem="HHO-b5-lKP" firstAttribute="centerY" secondItem="rwc-72-Qjk" secondAttribute="centerY" id="fhs-1y-3G0"/>
+                                    <constraint firstItem="HHO-b5-lKP" firstAttribute="centerY" secondItem="rwc-72-Qjk" secondAttribute="centerY" constant="-6" id="fhs-1y-3G0"/>
                                     <constraint firstAttribute="height" constant="334" id="mme-d8-em4"/>
                                     <constraint firstAttribute="bottom" secondItem="NSk-Tl-zIW" secondAttribute="bottom" id="ygr-4u-THr"/>
                                     <constraint firstItem="HHO-b5-lKP" firstAttribute="centerX" secondItem="rwc-72-Qjk" secondAttribute="centerX" id="za0-gx-yTN"/>
@@ -289,7 +289,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5v-Uj-rAG" customClass="HomeNavigationController" customModule="Pomodor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
