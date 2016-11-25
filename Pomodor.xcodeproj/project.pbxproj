@@ -31,6 +31,7 @@
 		E56F9F6F1DE67A24006AC12E /* UILabel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */; };
 		E56F9F721DE67D32006AC12E /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */; };
 		E56F9F731DE67D32006AC12E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */; };
+		E571824C1DE8B81300502EE8 /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571824B1DE8B81300502EE8 /* DeviceHelper.swift */; };
 		E5EB3DF61DE88C1500258C4D /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF41DE88C1500258C4D /* Session+CoreDataClass.swift */; };
 		E5EB3DF71DE88C1500258C4D /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */; };
 		E5EB3DF91DE8A9B600258C4D /* CountdownTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */; };
@@ -66,6 +67,7 @@
 		E56F9F6E1DE67A24006AC12E /* UILabel+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Additions.swift"; sourceTree = "<group>"; };
 		E56F9F701DE67D32006AC12E /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E571824B1DE8B81300502EE8 /* DeviceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
 		E5EB3DF41DE88C1500258C4D /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				E56F9F3F1DE64CB7006AC12E /* Components */,
 				E56F9F501DE64DDA006AC12E /* Constants */,
 				E56F9F381DE63869006AC12E /* Controllers */,
+				E571824A1DE8B80100502EE8 /* Helpers */,
 				E56F9F5A1DE66C36006AC12E /* Models */,
 				E56F9F361DE6385C006AC12E /* Resources */,
 				E56F9F391DE6386C006AC12E /* View Controllers */,
@@ -240,6 +243,14 @@
 				E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E571824A1DE8B80100502EE8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E571824B1DE8B81300502EE8 /* DeviceHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +389,7 @@
 				E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */,
 				E5EB3DF91DE8A9B600258C4D /* CountdownTimerController.swift in Sources */,
 				E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */,
+				E571824C1DE8B81300502EE8 /* DeviceHelper.swift in Sources */,
 				E5EB3DF71DE88C1500258C4D /* Session+CoreDataProperties.swift in Sources */,
 				E5EB3DF61DE88C1500258C4D /* Session+CoreDataClass.swift in Sources */,
 				E56F9F471DE64D05006AC12E /* HomeNavigationController.swift in Sources */,

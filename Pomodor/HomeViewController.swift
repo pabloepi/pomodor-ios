@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         setupControlsViewBlocks()
+        setupCountdownTimerControllerBlocks()
         checkIfActiveTask()
     }
     
@@ -70,14 +71,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
                                         
+                                        self.tableView.reloadData()
+                                        
                                         if Session.currentSession().activeTask != .none { return }
                                         
                                         self.index = self.tasks.index(of: task!)!
                                         
                                         self.headerView.taskPaused(remainingTime: (task?.remainingTime)!)
                                         self.controlsView.taskPaused()
-                                        
-                                        self.tableView.reloadData()
         })
         
         saveAction.isEnabled = false
@@ -125,6 +126,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             Task.mr_truncateAll()
             
+            Session.currentSession().activeTask = .none
+            
             DatabaseController.persist()
             
             self.tableView.reloadData()
@@ -152,9 +155,45 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Private Methods
     
+    fileprivate func setupCountdownTimerControllerBlocks() {
+        
+        CountdownTimerController.sharedInstance.didUpdateCountdown = { remainingTime in
+            
+            Session.currentSession().activeTask?.remainingTime = remainingTime
+            
+            let currentTask = self.tasks[self.index]
+            
+            if currentTask.isEqual(Session.currentSession().activeTask) {
+                
+                self.headerView.taskRunning(remainingTime: remainingTime)
+            }
+        }
+        
+        CountdownTimerController.sharedInstance.didCompleteCountdown = {
+            
+            Session.currentSession().activeTask?.markAsCompleted()
+            
+            let currentTask = self.tasks[self.index]
+            
+            if currentTask.isEqual(Session.currentSession().activeTask) {
+                
+                self.controlsView.taskCompleted()
+                self.headerView.taskCompleted()
+            }
+            
+            Session.currentSession().activeTask = .none
+            
+            DatabaseController.persist()
+            
+            DeviceHelper.vibratingDevice()
+        }
+    }
+    
     fileprivate func setupControlsViewBlocks() {
         
         self.controlsView.didTouchReset = {
+            
+            CountdownTimerController.sharedInstance.stopCountdown()
             
             let currentTask = self.tasks[self.index]
             
@@ -173,12 +212,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.controlsView.didTouchStop  = {
             
+            CountdownTimerController.sharedInstance.stopCountdown()
+            
             self.controlsView.taskPaused()
             self.headerView.taskPaused(remainingTime: (Session.currentSession().activeTask?.remainingTime)!)
             
             Session.currentSession().activeTask = .none
-            
-            // Stop Timer...
             
             DatabaseController.persist()
         }
@@ -190,9 +229,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.controlsView.taskRunning()
             self.headerView.taskRunning(remainingTime: currentTask.remainingTime)
             
-            // Start Timer...
-            
             Session.currentSession().activeTask = currentTask
+            
+            CountdownTimerController.sharedInstance.startCountdown(Session.currentSession().activeTask?.remainingTime)
                 
             DatabaseController.persist()
         }
@@ -246,6 +285,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         
         self.index = indexPath.row
+        
+        
     }
     
     // MARK: - UITableViewDataSource Methods

@@ -20,15 +20,15 @@ class CountdownTimerController: NSObject {
     var didUpdateCountdown:   ((_ remainingTime: Double) -> Void)?
     var didCompleteCountdown: (() -> Void)?
     
-    func startCountdown(_ remainingTime: Double) {
+    func startCountdown(_ remainingTime: Double!) {
         
         count = remainingTime
         
         self.timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                         target: self,
-                                         selector: #selector(CountdownTimerController.updateCountdown),
-                                         userInfo: .none,
-                                         repeats: true)
+                                          target: self,
+                                          selector: #selector(CountdownTimerController.updateCountdown),
+                                          userInfo: .none,
+                                          repeats: true)
     }
     
     func stopCountdown() {
@@ -39,20 +39,27 @@ class CountdownTimerController: NSObject {
     // MARK: - Private Methods
     
     @objc fileprivate func updateCountdown() {
-     
-        if count > 0 {
+        
+        if count > 0.00 {
             
             count -= 1
+            
+            didUpdateCountdown?(count)
             
         } else {
             
             invalidateTimer()
+            
+            didCompleteCountdown?()
         }
     }
     
     fileprivate func invalidateTimer() {
         
-        self.timer.invalidate()
-        self.timer = .none
+        if self.timer != .none {
+            
+            self.timer.invalidate()
+            self.timer = .none
+        }
     }
 }

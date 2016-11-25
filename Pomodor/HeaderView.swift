@@ -9,6 +9,8 @@
 import UIKit
 
 class HeaderView: UIView {
+
+    @IBOutlet fileprivate weak var container: UIView!
     
     @IBOutlet fileprivate weak var minutesLabel: UILabel!
     @IBOutlet fileprivate weak var secondsLabel: UILabel!
@@ -48,6 +50,8 @@ class HeaderView: UIView {
         
         self.minutesLabel.setLetterSpacing(spacing: -2.00)
         self.secondsLabel.setLetterSpacing(spacing: -2.00)
+        
+        self.completeLabel.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
     }
     
     func noTasks() {
@@ -55,33 +59,61 @@ class HeaderView: UIView {
         self.gradient.colors = [UIColor.pdrLightSkyTopColor().cgColor, UIColor.pdrLightSkyBottomColor().cgColor];
         
         changeTimeLabels(minutes: 00, seconds: 00)
+        hideCompletedLabel()
     }
     
     func taskPaused(remainingTime: Double) {
         
         self.gradient.colors = [UIColor.pdrDarkBlueTopColor().cgColor, UIColor.pdrDarkBlueBottomColor().cgColor];
         
-        let minutes = floor(remainingTime / 60);
+        let minutes = floor(remainingTime      / 60);
         let seconds = remainingTime - (minutes * 60);
         
         changeTimeLabels(minutes: minutes, seconds: seconds)
+        hideCompletedLabel()
     }
     
     func taskRunning(remainingTime: Double) {
         
         self.gradient.colors = [UIColor.pdrAliveRedTopColor().cgColor, UIColor.pdrAliveRedBottomColor().cgColor];
         
-        let minutes = floor(remainingTime / 60);
+        let minutes = floor(remainingTime      / 60);
         let seconds = remainingTime - (minutes * 60);
         
         changeTimeLabels(minutes: minutes, seconds: seconds)
+        hideCompletedLabel()
     }
     
     func taskCompleted() {
         
         self.gradient.colors = [UIColor.pdrBrightGreenTopColor().cgColor, UIColor.pdrBrightGreenBottomColor().cgColor];
         
+        showCompletedLabel()
         changeTimeLabels(minutes: 00, seconds: 00)
+    }
+    
+    // MARK: - Private Methods
+    
+    fileprivate func showCompletedLabel() {
+        
+        UIView.animate(withDuration: 0.18,
+                       animations: {
+                        
+                        self.completeLabel.transform = CGAffineTransform.identity
+                        self.completeLabel.alpha     = 1.0
+                        self.container.alpha         = 0.0
+        })
+    }
+    
+    fileprivate func hideCompletedLabel() {
+        
+        UIView.animate(withDuration: 0.18,
+                       animations: {
+                        
+                        self.completeLabel.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+                        self.completeLabel.alpha     = 0.0
+                        self.container.alpha         = 1.0
+        })
     }
     
     fileprivate func changeTimeLabels(minutes: Double, seconds: Double) {
@@ -89,7 +121,7 @@ class HeaderView: UIView {
         let animation            = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.type           = kCATransitionFade;
-        animation.duration       = 0.18;
+        animation.duration       = 0.12;
         
         self.minutesLabel.layer.add(animation, forKey: "kCATransitionFade")
         self.secondsLabel.layer.add(animation, forKey: "kCATransitionFade")

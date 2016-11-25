@@ -32,9 +32,17 @@ public class Task: NSManagedObject {
         self.remainingTime = Task.standardTimer()
     }
     
+    func markAsCompleted() {
+        
+        self.remainingTime = Double(0.00)
+        self.completed     = true
+        
+        DatabaseController.persist()
+    }
+    
     fileprivate class func standardTimer() -> Double {
         
-        return Double(20.00 * 60.00)
+        return Double(02.00 * 60.00)
     }
     
 }
