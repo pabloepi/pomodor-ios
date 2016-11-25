@@ -33,6 +33,7 @@
 		E56F9F731DE67D32006AC12E /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */; };
 		E5EB3DF61DE88C1500258C4D /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF41DE88C1500258C4D /* Session+CoreDataClass.swift */; };
 		E5EB3DF71DE88C1500258C4D /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */; };
+		E5EB3DF91DE8A9B600258C4D /* CountdownTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */; };
 		E5EEE60E1DE750230075D2B6 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEE60D1DE750230075D2B6 /* ControlsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		E56F9F711DE67D32006AC12E /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5EB3DF41DE88C1500258C4D /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerController.swift; sourceTree = "<group>"; };
 		E5EEE60D1DE750230075D2B6 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		E56F9F381DE63869006AC12E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */,
 				E5024CDE1DE69D40000DE95D /* DatabaseController.swift */,
 				E56F9F681DE66DAC006AC12E /* StartupController.swift */,
 			);
@@ -373,6 +376,7 @@
 				E56F9F5E1DE66C54006AC12E /* Pomodor.xcdatamodeld in Sources */,
 				E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */,
 				E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */,
+				E5EB3DF91DE8A9B600258C4D /* CountdownTimerController.swift in Sources */,
 				E56F9F551DE64F13006AC12E /* HomeViewController.swift in Sources */,
 				E5EB3DF71DE88C1500258C4D /* Session+CoreDataProperties.swift in Sources */,
 				E5EB3DF61DE88C1500258C4D /* Session+CoreDataClass.swift in Sources */,

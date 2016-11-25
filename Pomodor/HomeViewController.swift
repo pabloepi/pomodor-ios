@@ -11,6 +11,9 @@ import UITableView_NXEmptyView
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    fileprivate let workingTaskTitle = "Working Task"
+    fileprivate let noTasksTitle     = "No Tasks"
+    
     @IBOutlet fileprivate weak var headerView:   HeaderView!
     @IBOutlet fileprivate weak var controlsView: ControlsView!
     
@@ -27,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         super.viewDidLoad()
         
-        self.title = "Working Task"
+        self.title = workingTaskTitle
         
         self.tableView.nxEV_emptyView = emptyView()
         
@@ -59,6 +62,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                        style: .default,
                                        handler: { action -> Void in
                                         
+                                        self.title = self.workingTaskTitle
+                                        
                                         let textField = alert.textFields![0] as UITextField
                                         
                                         let task = Task.task(textField.text!)
@@ -73,7 +78,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         self.controlsView.taskPaused()
                                         
                                         self.tableView.reloadData()
-                                        
         })
         
         saveAction.isEnabled = false
@@ -116,6 +120,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let message = "All your tasks will be discarded."
         
         let callAction = { (action: UIAlertAction) -> Void in
+            
+            self.title = self.noTasksTitle
             
             Task.mr_truncateAll()
             
@@ -206,6 +212,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             self.headerView.noTasks()
             self.controlsView.noTasks()
+            
+            self.title = noTasksTitle
             
         } else {
             
