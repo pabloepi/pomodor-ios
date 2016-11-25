@@ -21,18 +21,16 @@ class ControlsView: UIView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        
-        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        
-        setup()
     }
     
-    fileprivate func setup() {
+    override func draw(_ rect: CGRect) {
+        
+        super.draw(rect)
         
         resetButton.addTarget(self, action: #selector(ControlsView.resetTouchUpInside), for: .touchUpInside)
         stopButton.addTarget(self,  action: #selector(ControlsView.stopTouchUpInside),  for: .touchUpInside)

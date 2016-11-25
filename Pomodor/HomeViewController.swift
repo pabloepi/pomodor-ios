@@ -16,6 +16,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     
+    fileprivate var index: Int = 0
+    
     fileprivate var tasks: Array<Task> {
         
         return Task.mr_findAll() as! Array<Task>
@@ -61,14 +63,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         let task = Task.task(textField.text!)
                                         
-                                        self.tableView.reloadData()
-                                        
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
                                         
-                                        if Session.currentSession().activeTask != nil { return }
+                                        if Session.currentSession().activeTask != .none { return }
+                                        
+                                        self.index = self.tasks.index(of: task!)!
                                         
                                         self.headerView.taskPaused(remainingTime: (task?.remainingTime)!)
                                         self.controlsView.taskPaused()
+                                        
+                                        self.tableView.reloadData()
                                         
         })
         
@@ -146,9 +150,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.controlsView.didTouchReset = {
             
-            let index = self.tableView.indexPathForSelectedRow?.row
-            
-            let currentTask = self.tasks[index!]
+            let currentTask = self.tasks[self.index]
             
             currentTask.reset()
             
@@ -165,12 +167,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.controlsView.didTouchStop  = {
             
+            self.controlsView.taskPaused()
+            self.headerView.taskPaused(remainingTime: (Session.currentSession().activeTask?.remainingTime)!)
             
+            Session.currentSession().activeTask = .none
+            
+            // Stop Timer...
+            
+            DatabaseController.persist()
         }
         
         self.controlsView.didTouchStart = {
             
+            let currentTask = self.tasks[self.index]
             
+            self.controlsView.taskRunning()
+            self.headerView.taskRunning(remainingTime: currentTask.remainingTime)
+            
+            // Start Timer...
+            
+            Session.currentSession().activeTask = currentTask
+                
+            DatabaseController.persist()
         }
     }
     
@@ -218,6 +236,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.index = indexPath.row
     }
     
     // MARK: - UITableViewDataSource Methods
