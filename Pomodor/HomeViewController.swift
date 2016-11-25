@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate var tasks: Array<Task> {
         
-        return Task.mr_findAll() as! Array<Task>
+        return Task.mr_findAllSorted(by: "createdAt", ascending: true) as! Array<Task>
     }
     
     override func viewDidLoad() {
@@ -232,7 +232,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             Session.currentSession().activeTask = currentTask
             
             CountdownTimerController.sharedInstance.startCountdown(Session.currentSession().activeTask?.remainingTime)
-                
+            
             DatabaseController.persist()
         }
     }
@@ -275,9 +275,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let task = self.tasks[indexPath.row]
+        let task     = self.tasks[indexPath.row]
+        let taskCell = cell as! TaskCell
         
-        (cell as! TaskCell).task = task
+        taskCell.task = task
+        
+        if (Session.currentSession().activeTask != .none &&
+            (Session.currentSession().activeTask?.isEqual(task))!) {
+            
+            taskCell.activeTask()
+            
+        } else if self.index == indexPath.row {
+            
+            taskCell.currentTask(isCurrent: true)
+            
+        } else {
+            
+            taskCell.currentTask(isCurrent: false)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -286,7 +301,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.index = indexPath.row
         
-        
+        for cell in tableView.visibleCells {
+            
+            let cellIndexPath = tableView.indexPath(for: cell)
+            let task          = self.tasks[(cellIndexPath?.row)!]
+            
+            if Session.currentSession().activeTask != .none {
+                
+                if (Session.currentSession().activeTask?.isEqual(task))! {
+                    
+                     (cell as! TaskCell).activeTask()
+                    
+                } else {
+                 
+                     (cell as! TaskCell).activeTaskNotCurrent()
+                    
+                }
+            } else if cellIndexPath?.row == indexPath.row {
+                
+                (cell as! TaskCell).currentTask(isCurrent: true)
+                
+            } else {
+                
+                (cell as! TaskCell).currentTask(isCurrent: false)
+            }
+        }
     }
     
     // MARK: - UITableViewDataSource Methods

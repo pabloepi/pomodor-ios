@@ -20,13 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodor-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KbD-OU-5p3">
-                                <rect key="frame" x="142" y="272" width="90" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="TgF-eQ-3LF"/>
-                                    <constraint firstAttribute="width" constant="90" id="cN6-N1-yDn"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodor-string" translatesAutoresizingMaskIntoConstraints="NO" id="agM-xU-ghX">
                                 <rect key="frame" x="133" y="622" width="109" height="20"/>
                                 <constraints>
@@ -34,23 +27,30 @@
                                     <constraint firstAttribute="height" constant="20" id="hh3-lp-sMe"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodor-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KbD-OU-5p3">
+                                <rect key="frame" x="137" y="247" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="TgF-eQ-3LF"/>
+                                    <constraint firstAttribute="width" constant="100" id="cN6-N1-yDn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="agM-xU-ghX" secondAttribute="bottom" constant="25" id="KYf-lj-BIl"/>
                             <constraint firstItem="KbD-OU-5p3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WTx-SQ-ezo"/>
-                            <constraint firstItem="KbD-OU-5p3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-19" id="bzV-Uh-6gB"/>
+                            <constraint firstItem="KbD-OU-5p3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-36.5" id="bzV-Uh-6gB"/>
                             <constraint firstItem="agM-xU-ghX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tqd-qt-5dJ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="pomodor-logo" width="180" height="172"/>
+        <image name="pomodor-logo" width="202" height="202"/>
         <image name="pomodor-string" width="208" height="28"/>
     </resources>
 </document>

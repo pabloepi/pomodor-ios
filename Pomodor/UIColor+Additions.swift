@@ -10,10 +10,25 @@ import UIKit
 import Foundation
 
 extension UIColor {
-
+    
     class func pdrCellBackgroundColor() -> UIColor {
         
         return UIColor(red:0.97, green:0.97, blue:0.97, alpha:1)
+    }
+    
+    class func pdrTextColor() -> UIColor {
+        
+        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
+    }
+    
+    class func pdrText50Color() -> UIColor {
+        
+        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:0.5)
+    }
+    
+    class func pdrText40Color() -> UIColor {
+        
+        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:0.4)
     }
     
     // MARK: - Header No Tasks Colors

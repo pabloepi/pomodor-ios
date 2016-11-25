@@ -181,7 +181,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fhl-rV-dLm">
                                 <rect key="frame" x="0.0" y="334" width="375" height="333"/>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="70" id="HTL-Ae-XoY" customClass="TaskCell" customModule="Pomodor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -292,7 +292,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5v-Uj-rAG" customClass="HomeNavigationController" customModule="Pomodor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C1E-Tj-qJF" customClass="HomeNavBar" customModule="Pomodor" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

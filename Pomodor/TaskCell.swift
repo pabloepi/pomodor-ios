@@ -18,7 +18,7 @@ class TaskCell: UITableViewCell {
     var task: Task! {
         
         didSet {
-            
+
             self.nameLabel.text           = self.task.name
             self.completedImageView.alpha = self.task.completed ? 1.0 : 0.0
             self.remainingTimeLabel.alpha = self.task.completed ? 0.0 : 1.0
@@ -52,6 +52,23 @@ class TaskCell: UITableViewCell {
     class func identifier() -> String {
         
         return String(describing: TaskCell.self)
+    }
+    
+    func currentTask(isCurrent: Bool) {
+        
+        self.nameLabel.textColor          = isCurrent ? UIColor.pdrTextColor()           : UIColor.pdrText50Color()
+        self.remainingTimeLabel.textColor = isCurrent ? UIColor.pdrDarkBlueBottomColor() : UIColor.pdrText40Color()
+    }
+    
+    func activeTaskNotCurrent() {
+        
+        self.nameLabel.textColor = UIColor.pdrText50Color()
+    }
+    
+    func activeTask() {
+        
+        self.nameLabel.textColor          = UIColor.pdrTextColor()
+        self.remainingTimeLabel.textColor = UIColor.pdrAliveRedTopColor()
     }
     
 }

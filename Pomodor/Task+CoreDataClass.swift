@@ -42,7 +42,7 @@ public class Task: NSManagedObject {
     
     fileprivate class func standardTimer() -> Double {
         
-        return Double(02.00 * 60.00)
+        return Double(20.00 * 60.00)
     }
     
 }
