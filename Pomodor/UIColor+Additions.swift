@@ -21,14 +21,9 @@ extension UIColor {
         return UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
     }
     
-    class func pdrText50Color() -> UIColor {
+    class func pdrText30Color() -> UIColor {
         
-        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:0.5)
-    }
-    
-    class func pdrText40Color() -> UIColor {
-        
-        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:0.4)
+        return UIColor(red:0.2, green:0.2, blue:0.2, alpha:0.3)
     }
     
     // MARK: - Header No Tasks Colors

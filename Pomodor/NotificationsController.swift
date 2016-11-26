@@ -13,17 +13,26 @@ class NotificationsController: NSObject {
     
     static let sharedInstance = NotificationsController()
     
-    func scheduleLocalNotification(forTask task: String) {
+    func scheduleLocalNotification(forTask task: Task) {
         
         let localNotification = UILocalNotification()
         
-        localNotification.fireDate                   = Date(timeIntervalSinceNow: 5) // Calculate Date using Task.remainingTime
-        localNotification.alertTitle                 = "Task Completed"
-        localNotification.alertBody                  = task
+        localNotification.fireDate                   = Date(timeIntervalSinceNow: task.remainingTime)
+        localNotification.alertBody                  = "\(task.name!) 👌"
         localNotification.timeZone                   = TimeZone.current
         localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
+    }
+
+    func removeScheduledLocalNotification() {
+        
+        UIApplication.shared.scheduledLocalNotifications?.removeAll()
+    }
+    
+    class func hasScheduledNotification() -> Bool {
+     
+        return (UIApplication.shared.scheduledLocalNotifications?.count)! > 0
     }
     
     class func registerUserNotification() {

@@ -86,14 +86,14 @@ class TaskCell: UITableViewCell {
     func currentTask(isCurrent: Bool) {
         
         self.backgroundColor              = isCurrent ? UIColor.white                    : UIColor.clear
-        self.nameLabel.textColor          = isCurrent ? UIColor.pdrTextColor()           : UIColor.pdrText50Color()
-        self.remainingTimeLabel.textColor = isCurrent ? UIColor.pdrDarkBlueBottomColor() : UIColor.pdrText40Color()
+        self.nameLabel.textColor          = isCurrent ? UIColor.pdrTextColor()           : UIColor.pdrText30Color()
+        self.remainingTimeLabel.textColor = isCurrent ? UIColor.pdrDarkBlueBottomColor() : UIColor.pdrText30Color()
     }
     
     func activeTaskNotCurrent() {
         
         self.backgroundColor     = UIColor.clear
-        self.nameLabel.textColor = UIColor.pdrText50Color()
+        self.nameLabel.textColor = UIColor.pdrText30Color()
     }
     
     func activeTask() {

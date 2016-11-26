@@ -10,7 +10,7 @@ import AVFoundation
 
 struct DeviceHelper {
     
-    static func vibratingDevice() {
+    static func vibrate() {
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }

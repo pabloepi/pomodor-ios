@@ -34,14 +34,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.nxEV_emptyView = emptyView()
         
+        setupControlsViewBlocks()
+        setupCountdownTimerControllerBlocks()
+        
         if self.tasks.count <= 0 {
             
             self.navigationItem.leftBarButtonItem?.isEnabled = false
         }
         
-        setupControlsViewBlocks()
-        setupCountdownTimerControllerBlocks()
         checkIfActiveTask()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(HomeViewController.updateLayoutCompletedTask),
+                                               name: .UIApplicationDidBecomeActive,
+                                               object: .none)
+        
+        updateLayoutCompletedTask(notification: .none)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIApplicationDidBecomeActive,
+                                                  object: .none)
     }
     
     override func didReceiveMemoryWarning() {
@@ -187,7 +204,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             DatabaseController.persist()
             
-            DeviceHelper.vibratingDevice()
+            DeviceHelper.vibrate()
         }
     }
     
@@ -305,6 +322,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 
                 (cell as! TaskCell).currentTask(isCurrent: false)
+            }
+        }
+    }
+    
+    @objc fileprivate func updateLayoutCompletedTask(notification: Notification?) {
+        
+        if !NotificationsController.hasScheduledNotification() {
+            
+            if let activeTask = Session.currentSession().activeTask {
+                
+                print("inside activeTask")
+                
+                self.index = self.tasks.index(of: activeTask)!
+                
+                self.tableView.reloadData()
+                
+                self.headerView.taskCompleted()
+                self.controlsView.taskCompleted()
+                
+                activeTask.markAsCompleted()
+                
+                Session.currentSession().activeTask = .none
+                
+                DatabaseController.persist()
             }
         }
     }
