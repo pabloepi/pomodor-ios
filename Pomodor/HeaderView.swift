@@ -58,7 +58,7 @@ class HeaderView: UIView {
         
         self.gradient.colors = [UIColor.pdrLightSkyTopColor().cgColor, UIColor.pdrLightSkyBottomColor().cgColor];
         
-        changeTimeLabels(minutes: 00, seconds: 00)
+        changeTimeLabels(00.00)
         hideCompletedLabel()
     }
     
