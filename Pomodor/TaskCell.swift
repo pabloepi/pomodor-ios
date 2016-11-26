@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVOController
 
 class TaskCell: UITableViewCell {
     
@@ -18,20 +19,25 @@ class TaskCell: UITableViewCell {
     var task: Task! {
         
         didSet {
-
+            
             self.nameLabel.text           = self.task.name
             self.completedImageView.alpha = self.task.completed ? 1.0 : 0.0
             self.remainingTimeLabel.alpha = self.task.completed ? 0.0 : 1.0
             
-            /*
-             self.kvoController.observe(self.message,
-             keyPath: "opened",
-             options: .old,
-             block: { (observer: Any?, object: Any, change: [String : Any]) in
-             
-             self.cardView.opened = self.message.opened
-             })
-             */
+            
+            self.kvoController.observe(self.task,
+                                       keyPath: "remainingTime",
+                                       options: .old,
+                                       block: { (observer: Any?, object: Any, change: [String : Any]) in
+                                        
+                                        if (Session.currentSession().activeTask?.isEqual(self.task))! {
+                                            
+                                            let minutes = floor(self.task.remainingTime      / 60);
+                                            let seconds = self.task.remainingTime - (minutes * 60);
+                                            
+                                            self.remainingTimeLabel.text = NSString(format: "%02.0f:%02.0f", minutes, seconds) as String
+                                        }
+            })
         }
     }
     
@@ -55,7 +61,7 @@ class TaskCell: UITableViewCell {
     }
     
     func currentTask(isCurrent: Bool) {
-     
+        
         self.backgroundColor              = isCurrent ? UIColor.white                    : UIColor.clear
         self.nameLabel.textColor          = isCurrent ? UIColor.pdrTextColor()           : UIColor.pdrText50Color()
         self.remainingTimeLabel.textColor = isCurrent ? UIColor.pdrDarkBlueBottomColor() : UIColor.pdrText40Color()

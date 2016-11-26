@@ -65,11 +65,8 @@ class HeaderView: UIView {
     func taskPaused(remainingTime: Double) {
         
         self.gradient.colors = [UIColor.pdrDarkBlueTopColor().cgColor, UIColor.pdrDarkBlueBottomColor().cgColor];
-        
-        let minutes = floor(remainingTime      / 60);
-        let seconds = remainingTime - (minutes * 60);
-        
-        changeTimeLabels(minutes: minutes, seconds: seconds)
+
+        changeTimeLabels(remainingTime)
         hideCompletedLabel()
     }
     
@@ -77,10 +74,7 @@ class HeaderView: UIView {
         
         self.gradient.colors = [UIColor.pdrAliveRedTopColor().cgColor, UIColor.pdrAliveRedBottomColor().cgColor];
         
-        let minutes = floor(remainingTime      / 60);
-        let seconds = remainingTime - (minutes * 60);
-        
-        changeTimeLabels(minutes: minutes, seconds: seconds)
+        changeTimeLabels(remainingTime)
         hideCompletedLabel()
     }
     
@@ -89,7 +83,7 @@ class HeaderView: UIView {
         self.gradient.colors = [UIColor.pdrBrightGreenTopColor().cgColor, UIColor.pdrBrightGreenBottomColor().cgColor];
         
         showCompletedLabel()
-        changeTimeLabels(minutes: 00, seconds: 00)
+        changeTimeLabels(00.00)
     }
     
     // MARK: - Private Methods
@@ -116,7 +110,7 @@ class HeaderView: UIView {
         })
     }
     
-    fileprivate func changeTimeLabels(minutes: Double, seconds: Double) {
+    fileprivate func changeTimeLabels(_ remainingTime: Double) {
         
         let animation            = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -125,6 +119,9 @@ class HeaderView: UIView {
         
         self.minutesLabel.layer.add(animation, forKey: "kCATransitionFade")
         self.secondsLabel.layer.add(animation, forKey: "kCATransitionFade")
+        
+        let minutes = floor(remainingTime      / 60);
+        let seconds = remainingTime - (minutes * 60);
         
         self.minutesLabel.text = NSString(format: "%02.0f", minutes) as String
         self.secondsLabel.text = NSString(format: "%02.0f", seconds) as String
