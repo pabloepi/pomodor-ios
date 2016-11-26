@@ -84,7 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         let textField = alert.textFields![0] as UITextField
                                         
-                                        let task = Task.task(textField.text!)
+                                        Task.task(textField.text!)
                                         
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
                                         
@@ -94,7 +94,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         self.index = 0
                                         
-                                        self.headerView.taskPaused(remainingTime: (task?.remainingTime)!)
+                                        let firstTask = self.tasks[self.index]
+                                        
+                                        if firstTask.completed {
+                                            
+                                            self.headerView.taskCompleted()
+                                            self.controlsView.taskCompleted()
+                                            
+                                            return
+                                        }
+                                        
+                                        self.headerView.taskPaused(remainingTime: (firstTask.remainingTime))
                                         self.controlsView.taskPaused()
         })
         
@@ -332,8 +342,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let activeTask = Session.currentSession().activeTask {
                 
-                print("inside activeTask")
-                
                 self.index = self.tasks.index(of: activeTask)!
                 
                 self.tableView.reloadData()
@@ -346,6 +354,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 Session.currentSession().activeTask = .none
                 
                 DatabaseController.persist()
+            }
+            
+        } else {
+            
+            if let activeTask = Session.currentSession().activeTask {
+                
+                let localNotification = NotificationsController.sharedInstance.currentLocalNotification()
+                
+                let remainingTime = localNotification?.fireDate!.timeIntervalSince(Date())
+                
+                activeTask.remainingTime = remainingTime! + 1
+                
+                DatabaseController.persist()
+                
+                CountdownTimerController.sharedInstance.startCountdown(activeTask.remainingTime)
+                
+                self.index = self.tasks.index(of: activeTask)!
+                
+                self.tableView.reloadData()
+                
+                self.headerView.taskRunning(remainingTime: activeTask.remainingTime)
+                self.controlsView.taskRunning()
             }
         }
     }

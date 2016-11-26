@@ -30,6 +30,11 @@ class NotificationsController: NSObject {
         UIApplication.shared.scheduledLocalNotifications?.removeAll()
     }
     
+    func currentLocalNotification() -> UILocalNotification? {
+        
+        return UIApplication.shared.scheduledLocalNotifications?.first
+    }
+    
     class func hasScheduledNotification() -> Bool {
      
         return (UIApplication.shared.scheduledLocalNotifications?.count)! > 0

@@ -12,7 +12,7 @@ import CoreData
 @objc(Task)
 public class Task: NSManagedObject {
 
-    class func task(_ name: String) -> Task? {
+    class func task(_ name: String) {
         
         let task = Task.mr_createEntity()
         
@@ -23,8 +23,6 @@ public class Task: NSManagedObject {
         task?.completed     = false
         
         DatabaseController.persist()
-        
-        return task
     }
     
     func reset() {
@@ -42,7 +40,7 @@ public class Task: NSManagedObject {
     
     fileprivate class func standardTimer() -> Double {
         
-        return Double(05.00)
+        return Double(10.00)
     }
     
 }
