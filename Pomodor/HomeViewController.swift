@@ -195,8 +195,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.controlsView.didTouchReset = {
             
-            CountdownTimerController.sharedInstance.stopCountdown()
-            
             let currentTask = self.tasks[self.index]
             
             currentTask.reset()
@@ -204,12 +202,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.controlsView.taskPaused()
             self.headerView.taskPaused(remainingTime: currentTask.remainingTime)
             
-            if currentTask.isEqual(Session.currentSession().activeTask) {
+            if Session.currentSession().activeTask != .none &&
+                currentTask.isEqual(Session.currentSession().activeTask) {
+                
+                CountdownTimerController.sharedInstance.stopCountdown()
                 
                 Session.currentSession().activeTask = .none
             }
             
             DatabaseController.persist()
+            
+            self.refreshVisibleCells()
         }
         
         self.controlsView.didTouchStop  = {
@@ -222,6 +225,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             Session.currentSession().activeTask = .none
             
             DatabaseController.persist()
+            
+            self.refreshVisibleCells()
         }
         
         self.controlsView.didTouchStart = {
@@ -236,6 +241,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             CountdownTimerController.sharedInstance.startCountdown(Session.currentSession().activeTask?.remainingTime)
             
             DatabaseController.persist()
+            
+            self.refreshVisibleCells()
         }
     }
     
@@ -273,6 +280,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    fileprivate func refreshVisibleCells() {
+        
+        for cell in tableView.visibleCells {
+            
+            let cellIndexPath = tableView.indexPath(for: cell)
+            let task          = self.tasks[(cellIndexPath?.row)!]
+            
+            if (Session.currentSession().activeTask != .none &&
+                (Session.currentSession().activeTask?.isEqual(task))!) {
+                
+                if (cellIndexPath?.row == self.index) {
+                    
+                    (cell as! TaskCell).activeTask()
+                    
+                } else {
+                    
+                    (cell as! TaskCell).activeTaskNotCurrent()
+                }
+            } else if cellIndexPath?.row == self.index {
+                
+                (cell as! TaskCell).currentTask(isCurrent: true)
+                
+            } else {
+                
+                (cell as! TaskCell).currentTask(isCurrent: false)
+            }
+        }
+    }
+    
     // MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -303,31 +339,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.index = indexPath.row
         
-        for cell in tableView.visibleCells {
-            
-            let cellIndexPath = tableView.indexPath(for: cell)
-            let task          = self.tasks[(cellIndexPath?.row)!]
-            
-            if (Session.currentSession().activeTask != .none &&
-                (Session.currentSession().activeTask?.isEqual(task))!) {
-                
-                if (cellIndexPath?.row == self.index) {
-                    
-                    (cell as! TaskCell).activeTask()
-                    
-                } else {
-                    
-                    (cell as! TaskCell).activeTaskNotCurrent()
-                }
-            } else if cellIndexPath?.row == indexPath.row {
-                
-                (cell as! TaskCell).currentTask(isCurrent: true)
-                
-            } else {
-                
-                (cell as! TaskCell).currentTask(isCurrent: false)
-            }
-        }
+        refreshVisibleCells()
         
         let task = self.tasks[self.index]
         

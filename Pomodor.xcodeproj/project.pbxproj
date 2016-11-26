@@ -12,6 +12,7 @@
 		E5024CDD1DE69C39000DE95D /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDC1DE69C39000DE95D /* UIButton+Additions.swift */; };
 		E5024CDF1DE69D40000DE95D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDE1DE69D40000DE95D /* DatabaseController.swift */; };
 		E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CE01DE6AC58000DE95D /* HeaderView.swift */; };
+		E50586F71DE9646D00C1696E /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50586F61DE9646D00C1696E /* NotificationsController.swift */; };
 		E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F231DE6371E006AC12E /* AppDelegate.swift */; };
 		E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F271DE6371E006AC12E /* Main.storyboard */; };
 		E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2A1DE6371E006AC12E /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		E5024CDC1DE69C39000DE95D /* UIButton+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 		E5024CDE1DE69D40000DE95D /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		E5024CE01DE6AC58000DE95D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E50586F61DE9646D00C1696E /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E56F9F201DE6371E006AC12E /* Pomodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56F9F231DE6371E006AC12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E56F9F281DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */,
 				E5024CDE1DE69D40000DE95D /* DatabaseController.swift */,
+				E50586F61DE9646D00C1696E /* NotificationsController.swift */,
 				E56F9F681DE66DAC006AC12E /* StartupController.swift */,
 			);
 			name = Controllers;
@@ -384,6 +387,7 @@
 				E56F9F691DE66DAC006AC12E /* StartupController.swift in Sources */,
 				E56F9F6F1DE67A24006AC12E /* UILabel+Additions.swift in Sources */,
 				E5024CDD1DE69C39000DE95D /* UIButton+Additions.swift in Sources */,
+				E50586F71DE9646D00C1696E /* NotificationsController.swift in Sources */,
 				E56F9F5E1DE66C54006AC12E /* Pomodor.xcdatamodeld in Sources */,
 				E56F9F491DE64D11006AC12E /* HomeNavBar.swift in Sources */,
 				E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */,

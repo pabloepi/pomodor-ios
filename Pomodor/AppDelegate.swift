@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         StartupController.kickoff(launchOptions)
         
+        NotificationsController.registerUserNotification()
+        NotificationsController.zeroBadge()
+        
         return true
     }
     

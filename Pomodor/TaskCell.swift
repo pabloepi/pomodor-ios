@@ -20,23 +20,39 @@ class TaskCell: UITableViewCell {
         
         didSet {
             
-            self.nameLabel.text           = self.task.name
-            self.completedImageView.alpha = self.task.completed ? 1.0 : 0.0
-            self.remainingTimeLabel.alpha = self.task.completed ? 0.0 : 1.0
+            let setRemainingTimeText = {
+                
+                let minutes = floor(self.task.remainingTime      / 60);
+                let seconds = self.task.remainingTime - (minutes * 60);
+                
+                self.remainingTimeLabel.text = NSString(format: "%02.0f:%02.0f", minutes, seconds) as String
+            }
             
+            let setCompletedImageView = {
+                
+                self.completedImageView.alpha = self.task.completed ? 1.0 : 0.0
+                self.remainingTimeLabel.alpha = self.task.completed ? 0.0 : 1.0
+            }
+            
+            setRemainingTimeText()
+            setCompletedImageView()
+            
+            self.nameLabel.text = self.task.name
             
             self.kvoController.observe(self.task,
                                        keyPath: "remainingTime",
                                        options: .old,
                                        block: { (observer: Any?, object: Any, change: [String : Any]) in
                                         
-                                        if (Session.currentSession().activeTask?.isEqual(self.task))! {
-                                            
-                                            let minutes = floor(self.task.remainingTime      / 60);
-                                            let seconds = self.task.remainingTime - (minutes * 60);
-                                            
-                                            self.remainingTimeLabel.text = NSString(format: "%02.0f:%02.0f", minutes, seconds) as String
-                                        }
+                                        setRemainingTimeText()
+            })
+            
+            self.kvoController.observe(self.task,
+                                       keyPath: "completed",
+                                       options: .old,
+                                       block: { (observer: Any?, object: Any, change: [String : Any]) in
+                                        
+                                        setCompletedImageView()
             })
         }
     }
@@ -46,6 +62,13 @@ class TaskCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
+    }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+        self.kvoController.unobserveAll()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
