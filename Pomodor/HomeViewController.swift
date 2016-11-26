@@ -75,7 +75,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         if Session.currentSession().activeTask != .none { return }
                                         
-                                        self.index = self.tasks.index(of: task!)!
+                                        self.index = 0
                                         
                                         self.headerView.taskPaused(remainingTime: (task?.remainingTime)!)
                                         self.controlsView.taskPaused()

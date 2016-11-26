@@ -212,7 +212,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQf-oy-8ib">
-                                                    <rect key="frame" x="0.0" y="68" width="375" height="1"/>
+                                                    <rect key="frame" x="0.0" y="69" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="tCR-Hk-Cmd"/>
@@ -234,7 +234,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="0k8-D7-UUu" secondAttribute="trailing" constant="13" id="pyq-87-JYx"/>
                                                 <constraint firstItem="0k8-D7-UUu" firstAttribute="top" secondItem="Rgm-ND-1ih" secondAttribute="top" constant="26" id="r9r-81-2sV"/>
                                                 <constraint firstItem="fNz-ei-pnO" firstAttribute="top" secondItem="Rgm-ND-1ih" secondAttribute="top" constant="26" id="sMp-jp-8bF"/>
-                                                <constraint firstAttribute="bottom" secondItem="BQf-oy-8ib" secondAttribute="bottom" constant="1" id="thc-VJ-FK1"/>
+                                                <constraint firstAttribute="bottom" secondItem="BQf-oy-8ib" secondAttribute="bottom" id="thc-VJ-FK1"/>
                                                 <constraint firstItem="3sw-DV-fbX" firstAttribute="top" secondItem="Rgm-ND-1ih" secondAttribute="top" constant="26" id="w0D-aJ-zMQ"/>
                                             </constraints>
                                         </tableViewCellContentView>

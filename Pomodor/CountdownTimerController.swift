@@ -22,6 +22,8 @@ class CountdownTimerController: NSObject {
     
     func startCountdown(_ remainingTime: Double!) {
         
+        invalidateTimer()
+        
         count = remainingTime
         
         self.timer = Timer.scheduledTimer(timeInterval: 1.0,

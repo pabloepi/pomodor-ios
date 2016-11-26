@@ -12,4 +12,5 @@ target 'Pomodor' do
   pod 'SVProgressHUD', '~> 2.0'
   pod 'SnapKit', '3.0.0'
   pod "Timepiece"
+  pod 'KVOController', '~> 1.1'
 end
