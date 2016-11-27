@@ -18,9 +18,10 @@ class NotificationsController: NSObject {
         let localNotification = UILocalNotification()
         
         localNotification.fireDate                   = Date(timeIntervalSinceNow: task.remainingTime)
-        localNotification.alertBody                  = "\(task.name!) 👌"
+        localNotification.alertTitle                 = "Task Completed"
+        localNotification.alertBody                  = "\(task.name!)"
         localNotification.timeZone                   = TimeZone.current
-        localNotification.soundName                  = UILocalNotificationDefaultSoundName
+        localNotification.soundName                  = "notification-sound.aiff"
         localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
         
         UIApplication.shared.scheduleLocalNotification(localNotification)

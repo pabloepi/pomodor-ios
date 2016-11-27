@@ -13,6 +13,8 @@
 		E5024CDF1DE69D40000DE95D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CDE1DE69D40000DE95D /* DatabaseController.swift */; };
 		E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CE01DE6AC58000DE95D /* HeaderView.swift */; };
 		E50586F71DE9646D00C1696E /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50586F61DE9646D00C1696E /* NotificationsController.swift */; };
+		E50586F91DEB5BFE00C1696E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50586F81DEB5BFE00C1696E /* AudioToolbox.framework */; };
+		E50586FC1DEB79F200C1696E /* notification-sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E50586FB1DEB79F200C1696E /* notification-sound.aiff */; };
 		E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F231DE6371E006AC12E /* AppDelegate.swift */; };
 		E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F271DE6371E006AC12E /* Main.storyboard */; };
 		E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2A1DE6371E006AC12E /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		E5024CDE1DE69D40000DE95D /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		E5024CE01DE6AC58000DE95D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E50586F61DE9646D00C1696E /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		E50586F81DEB5BFE00C1696E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E50586FB1DEB79F200C1696E /* notification-sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "notification-sound.aiff"; sourceTree = "<group>"; };
 		E56F9F201DE6371E006AC12E /* Pomodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56F9F231DE6371E006AC12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E56F9F281DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50586F91DEB5BFE00C1696E /* AudioToolbox.framework in Frameworks */,
 				096664A3FC1D2B6F5B138F00 /* Pods_Pomodor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +96,7 @@
 		747B8D1AEB977AE7C2723132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E50586F81DEB5BFE00C1696E /* AudioToolbox.framework */,
 				0D94AF25D5AAACB28D41FE49 /* Pods_Pomodor.framework */,
 			);
 			name = Frameworks;
@@ -103,6 +109,14 @@
 				9D10F0C84FB9ADCB3315CA92 /* Pods-Pomodor.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E50586FA1DEB79E500C1696E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E50586FB1DEB79F200C1696E /* notification-sound.aiff */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		E56F9F171DE6371E006AC12E = {
@@ -157,6 +171,7 @@
 				E56F9F371DE63861006AC12E /* Fonts */,
 				E56F9F2F1DE6371E006AC12E /* Info.plist */,
 				E56F9F5C1DE66C54006AC12E /* Pomodor.xcdatamodeld */,
+				E50586FA1DEB79E500C1696E /* Sounds */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -329,6 +344,7 @@
 				E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */,
 				E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */,
 				E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */,
+				E50586FC1DEB79F200C1696E /* notification-sound.aiff in Resources */,
 				E56F9F3C1DE6391B006AC12E /* ProximaNova-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
