@@ -18,14 +18,13 @@ struct DeviceHelper {
     
     static func playSuccess() {
         
-        let path = Bundle.main.path(forResource: "notification-sound",
-                                    ofType: "aiff")
+        let url = Bundle.main.url(forResource: "notification-sound",
+                                  withExtension: "aiff")
         
         var soundID: SystemSoundID = 0
         
-        AudioServicesCreateSystemSoundID(path as! CFURL, &soundID)
+        AudioServicesCreateSystemSoundID(url as! CFURL, &soundID)
         AudioServicesPlaySystemSound(soundID);
-        AudioServicesDisposeSystemSoundID(soundID);
     }
     
 }

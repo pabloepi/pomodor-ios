@@ -14,7 +14,6 @@
 		E5024CE11DE6AC58000DE95D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5024CE01DE6AC58000DE95D /* HeaderView.swift */; };
 		E50586F71DE9646D00C1696E /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50586F61DE9646D00C1696E /* NotificationsController.swift */; };
 		E50586F91DEB5BFE00C1696E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50586F81DEB5BFE00C1696E /* AudioToolbox.framework */; };
-		E50586FC1DEB79F200C1696E /* notification-sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E50586FB1DEB79F200C1696E /* notification-sound.aiff */; };
 		E56F9F241DE6371E006AC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F9F231DE6371E006AC12E /* AppDelegate.swift */; };
 		E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F271DE6371E006AC12E /* Main.storyboard */; };
 		E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56F9F2A1DE6371E006AC12E /* Assets.xcassets */; };
@@ -39,6 +38,7 @@
 		E5EB3DF71DE88C1500258C4D /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */; };
 		E5EB3DF91DE8A9B600258C4D /* CountdownTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */; };
 		E5EEE60E1DE750230075D2B6 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEE60D1DE750230075D2B6 /* ControlsView.swift */; };
+		E5F3DFAF1DEB7E8E0063E2BF /* notification-sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E5F3DFAE1DEB7E8E0063E2BF /* notification-sound.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,6 @@
 		E5024CE01DE6AC58000DE95D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E50586F61DE9646D00C1696E /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E50586F81DEB5BFE00C1696E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		E50586FB1DEB79F200C1696E /* notification-sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "notification-sound.aiff"; sourceTree = "<group>"; };
 		E56F9F201DE6371E006AC12E /* Pomodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56F9F231DE6371E006AC12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E56F9F281DE6371E006AC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		E5EB3DF51DE88C1500258C4D /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5EB3DF81DE8A9B600258C4D /* CountdownTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerController.swift; sourceTree = "<group>"; };
 		E5EEE60D1DE750230075D2B6 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		E5F3DFAE1DEB7E8E0063E2BF /* notification-sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "notification-sound.aiff"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 		E50586FA1DEB79E500C1696E /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				E50586FB1DEB79F200C1696E /* notification-sound.aiff */,
+				E5F3DFAE1DEB7E8E0063E2BF /* notification-sound.aiff */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 				E56F9F3D1DE6391B006AC12E /* ProximaNova-Regular.otf in Resources */,
 				E56F9F2B1DE6371E006AC12E /* Assets.xcassets in Resources */,
 				E56F9F291DE6371E006AC12E /* Main.storyboard in Resources */,
-				E50586FC1DEB79F200C1696E /* notification-sound.aiff in Resources */,
+				E5F3DFAF1DEB7E8E0063E2BF /* notification-sound.aiff in Resources */,
 				E56F9F3C1DE6391B006AC12E /* ProximaNova-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
