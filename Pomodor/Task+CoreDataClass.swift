@@ -12,7 +12,7 @@ import CoreData
 @objc(Task)
 public class Task: NSManagedObject {
 
-    class func task(_ name: String) {
+    class func task(_ name: String) -> Task? {
         
         let task = Task.mr_createEntity()
         
@@ -23,6 +23,8 @@ public class Task: NSManagedObject {
         task?.completed     = false
         
         DatabaseController.persist()
+        
+        return task
     }
     
     func reset() {

@@ -50,8 +50,6 @@ class HeaderView: UIView {
         
         self.minutesLabel.setLetterSpacing(spacing: -2.00)
         self.secondsLabel.setLetterSpacing(spacing: -2.00)
-        
-        self.completeLabel.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
     }
     
     func noTasks() {
@@ -93,9 +91,8 @@ class HeaderView: UIView {
         UIView.animate(withDuration: 0.18,
                        animations: {
                         
-                        self.completeLabel.transform = CGAffineTransform.identity
-                        self.completeLabel.alpha     = 1.0
-                        self.container.alpha         = 0.0
+                        self.completeLabel.alpha = 1.0
+                        self.container.alpha     = 0.0
         })
     }
     
@@ -104,9 +101,8 @@ class HeaderView: UIView {
         UIView.animate(withDuration: 0.18,
                        animations: {
                         
-                        self.completeLabel.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
-                        self.completeLabel.alpha     = 0.0
-                        self.container.alpha         = 1.0
+                        self.completeLabel.alpha = 0.0
+                        self.container.alpha     = 1.0
         })
     }
     

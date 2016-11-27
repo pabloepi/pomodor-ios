@@ -84,7 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         let textField = alert.textFields![0] as UITextField
                                         
-                                        Task.task(textField.text!)
+                                        let newTask = Task.task(textField.text!)
                                         
                                         self.navigationItem.leftBarButtonItem?.isEnabled = true
                                         
@@ -92,20 +92,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         if Session.currentSession().activeTask != .none { return }
                                         
-                                        self.index = 0
+                                        self.index = self.tasks.count - 1
                                         
-                                        let firstTask = self.tasks[self.index]
-                                        
-                                        if firstTask.completed {
-                                            
-                                            self.headerView.taskCompleted()
-                                            self.controlsView.taskCompleted()
-                                            
-                                            return
-                                        }
-                                        
-                                        self.headerView.taskPaused(remainingTime: (firstTask.remainingTime))
+                                        self.headerView.taskPaused(remainingTime: (newTask?.remainingTime)!)
                                         self.controlsView.taskPaused()
+                                        
+                                        self.tableView.scrollToRow(at: IndexPath(row: self.index, section: 0),
+                                                                   at: .bottom,
+                                                                   animated: true)
         })
         
         saveAction.isEnabled = false
@@ -338,6 +332,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc fileprivate func updateLayoutCompletedTask(notification: Notification?) {
         
+        let scrollTableViewBlock = {
+            
+            self.tableView.scrollToRow(at: IndexPath(row: self.index, section: 0),
+                                       at: .bottom,
+                                       animated: true)
+        }
+        
         if !NotificationsController.hasScheduledNotification() {
             
             if let activeTask = Session.currentSession().activeTask {
@@ -354,6 +355,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 Session.currentSession().activeTask = .none
                 
                 DatabaseController.persist()
+                
+                scrollTableViewBlock()
             }
             
         } else {
@@ -364,7 +367,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 let remainingTime = localNotification?.fireDate!.timeIntervalSince(Date())
                 
-                activeTask.remainingTime = remainingTime! + 1
+                activeTask.remainingTime = floor(remainingTime!)
                 
                 DatabaseController.persist()
                 
@@ -376,6 +379,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 self.headerView.taskRunning(remainingTime: activeTask.remainingTime)
                 self.controlsView.taskRunning()
+                
+                scrollTableViewBlock()
             }
         }
     }
@@ -392,8 +397,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if (Session.currentSession().activeTask != .none &&
             (Session.currentSession().activeTask?.isEqual(task))!) {
             
-            taskCell.activeTask()
-            
+            if (indexPath.row == self.index) {
+                
+                (cell as! TaskCell).activeTask()
+                
+            } else {
+                
+                (cell as! TaskCell).activeTaskNotCurrent()
+            }
         } else if self.index == indexPath.row {
             
             taskCell.currentTask(isCurrent: true)
