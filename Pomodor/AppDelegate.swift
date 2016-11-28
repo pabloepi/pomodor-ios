@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
-        if !NotificationsController.hasScheduledNotification() {
+        if let activeTask = Session.currentSession().activeTask {
             
-            if let activeTask = Session.currentSession().activeTask {
+            if activeTask.fireDate == .none {
                 
                 CountdownTimerController.sharedInstance.stopCountdown()
                 

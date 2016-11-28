@@ -149,7 +149,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             Task.mr_truncateAll()
             
-            Session.currentSession().activeTask = .none
+            Session.currentSession().activeTask           = .none
+            Session.currentSession().activeTask?.fireDate = .none
             
             DatabaseController.persist()
             
@@ -204,7 +205,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.headerView.taskCompleted()
             }
             
-            Session.currentSession().activeTask = .none
+            Session.currentSession().activeTask           = .none
+            Session.currentSession().activeTask?.fireDate = .none
             
             DatabaseController.persist()
             
@@ -229,7 +231,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 CountdownTimerController.sharedInstance.stopCountdown()
                 
-                Session.currentSession().activeTask = .none
+                Session.currentSession().activeTask           = .none
+                Session.currentSession().activeTask?.fireDate = .none
                 
                 NotificationsController.sharedInstance.removeScheduledLocalNotification()
             }
@@ -246,7 +249,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.controlsView.taskPaused()
             self.headerView.taskPaused(remainingTime: (Session.currentSession().activeTask?.remainingTime)!)
             
-            Session.currentSession().activeTask = .none
+            Session.currentSession().activeTask           = .none
+            Session.currentSession().activeTask?.fireDate = .none
             
             NotificationsController.sharedInstance.removeScheduledLocalNotification()
             
@@ -344,9 +348,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                        animated: true)
         }
         
-        if !NotificationsController.hasScheduledNotification() {
+        if let activeTask = Session.currentSession().activeTask {
             
-            if let activeTask = Session.currentSession().activeTask {
+            let showCompletedState = {
                 
                 self.index = self.tasks.index(of: activeTask)!
                 
@@ -357,20 +361,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 activeTask.markAsCompleted()
                 
-                Session.currentSession().activeTask = .none
+                Session.currentSession().activeTask           = .none
+                Session.currentSession().activeTask?.fireDate = .none
                 
                 DatabaseController.persist()
-                
-                scrollTableViewBlock()
             }
             
-        } else {
-            
-            if let activeTask = Session.currentSession().activeTask {
-
+            if activeTask.fireDate == .none {
+                
+                showCompletedState()
+                
+            } else {
+                
                 let remainingTime = (activeTask.fireDate as! Date).timeIntervalSince(Date())
                 
-                activeTask.remainingTime = floor(remainingTime)
+                if remainingTime <= 00.00 {
+                    
+                    showCompletedState()
+                    
+                    return
+                }
+                
+                activeTask.remainingTime = round(remainingTime)
                 
                 DatabaseController.persist()
                 
@@ -382,9 +394,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 self.headerView.taskRunning(remainingTime: activeTask.remainingTime)
                 self.controlsView.taskRunning()
-                
-                scrollTableViewBlock()
             }
+            
+            scrollTableViewBlock()
         }
     }
     
