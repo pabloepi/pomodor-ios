@@ -149,8 +149,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             Task.mr_truncateAll()
             
-            Session.currentSession().activeTask           = .none
             Session.currentSession().activeTask?.fireDate = .none
+            Session.currentSession().activeTask           = .none
             
             DatabaseController.persist()
             
@@ -205,8 +205,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.headerView.taskCompleted()
             }
             
-            Session.currentSession().activeTask           = .none
             Session.currentSession().activeTask?.fireDate = .none
+            Session.currentSession().activeTask           = .none
             
             DatabaseController.persist()
             
@@ -231,8 +231,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 CountdownTimerController.sharedInstance.stopCountdown()
                 
-                Session.currentSession().activeTask           = .none
                 Session.currentSession().activeTask?.fireDate = .none
+                Session.currentSession().activeTask           = .none
                 
                 NotificationsController.sharedInstance.removeScheduledLocalNotification()
             }
@@ -249,8 +249,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.controlsView.taskPaused()
             self.headerView.taskPaused(remainingTime: (Session.currentSession().activeTask?.remainingTime)!)
             
-            Session.currentSession().activeTask           = .none
             Session.currentSession().activeTask?.fireDate = .none
+            Session.currentSession().activeTask           = .none
             
             NotificationsController.sharedInstance.removeScheduledLocalNotification()
             
@@ -310,35 +310,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    fileprivate func refreshVisibleCells() {
-        
-        for cell in tableView.visibleCells {
-            
-            let cellIndexPath = tableView.indexPath(for: cell)
-            let task          = self.tasks[(cellIndexPath?.row)!]
-            
-            if (Session.currentSession().activeTask != .none &&
-                (Session.currentSession().activeTask?.isEqual(task))!) {
-                
-                if (cellIndexPath?.row == self.index) {
-                    
-                    (cell as! TaskCell).activeTask()
-                    
-                } else {
-                    
-                    (cell as! TaskCell).activeTaskNotCurrent()
-                }
-            } else if cellIndexPath?.row == self.index {
-                
-                (cell as! TaskCell).currentTask(isCurrent: true)
-                
-            } else {
-                
-                (cell as! TaskCell).currentTask(isCurrent: false)
-            }
-        }
-    }
-    
     @objc fileprivate func updateLayoutCompletedTask(notification: Notification?) {
         
         let scrollTableViewBlock = {
@@ -352,6 +323,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let showCompletedState = {
                 
+                NotificationsController.sharedInstance.removeScheduledLocalNotification()
+                
                 self.index = self.tasks.index(of: activeTask)!
                 
                 self.tableView.reloadData()
@@ -361,8 +334,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 activeTask.markAsCompleted()
                 
-                Session.currentSession().activeTask           = .none
                 Session.currentSession().activeTask?.fireDate = .none
+                Session.currentSession().activeTask           = .none
                 
                 DatabaseController.persist()
             }
@@ -397,6 +370,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             scrollTableViewBlock()
+        }
+    }
+    
+    fileprivate func refreshVisibleCells() {
+        
+        for cell in tableView.visibleCells {
+            
+            let cellIndexPath = tableView.indexPath(for: cell)
+            let task          = self.tasks[(cellIndexPath?.row)!]
+            
+            if (Session.currentSession().activeTask != .none &&
+                (Session.currentSession().activeTask?.isEqual(task))!) {
+                
+                if (cellIndexPath?.row == self.index) {
+                    
+                    (cell as! TaskCell).activeTask()
+                    
+                } else {
+                    
+                    (cell as! TaskCell).activeTaskNotCurrent()
+                }
+            } else if cellIndexPath?.row == self.index {
+                
+                (cell as! TaskCell).currentTask(isCurrent: true)
+                
+            } else {
+                
+                (cell as! TaskCell).currentTask(isCurrent: false)
+            }
         }
     }
     
