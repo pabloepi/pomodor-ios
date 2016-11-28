@@ -25,6 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
+        checkActiveTaskFireDate()
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        
+        checkActiveTaskFireDate()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        NotificationsController.zeroBadge()
+    }
+    
+    fileprivate func checkActiveTaskFireDate() {
+        
         if let activeTask = Session.currentSession().activeTask {
             
             if activeTask.fireDate == .none {
@@ -38,11 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 DatabaseController.persist()
             }
         }
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-        NotificationsController.zeroBadge()
     }
     
 }
