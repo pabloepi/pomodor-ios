@@ -230,6 +230,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 CountdownTimerController.sharedInstance.stopCountdown()
                 
                 Session.currentSession().activeTask = .none
+                
+                NotificationsController.sharedInstance.removeScheduledLocalNotification()
             }
             
             DatabaseController.persist()
@@ -245,6 +247,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.headerView.taskPaused(remainingTime: (Session.currentSession().activeTask?.remainingTime)!)
             
             Session.currentSession().activeTask = .none
+            
+            NotificationsController.sharedInstance.removeScheduledLocalNotification()
             
             DatabaseController.persist()
             
@@ -363,12 +367,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             
             if let activeTask = Session.currentSession().activeTask {
+
+                let remainingTime = (activeTask.fireDate as! Date).timeIntervalSince(Date())
                 
-                let localNotification = NotificationsController.sharedInstance.currentLocalNotification()
-                
-                let remainingTime = localNotification?.fireDate!.timeIntervalSince(Date())
-                
-                activeTask.remainingTime = floor(remainingTime!)
+                activeTask.remainingTime = floor(remainingTime)
                 
                 DatabaseController.persist()
                 

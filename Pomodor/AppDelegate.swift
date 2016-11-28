@@ -25,11 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
-        if let activeTask = Session.currentSession().activeTask {
+        if !NotificationsController.hasScheduledNotification() {
             
-            CountdownTimerController.sharedInstance.stopCountdown()
-            
-            NotificationsController.sharedInstance.scheduleLocalNotification(forTask: activeTask)
+            if let activeTask = Session.currentSession().activeTask {
+                
+                CountdownTimerController.sharedInstance.stopCountdown()
+                
+                activeTask.fireDate = Date(timeIntervalSinceNow: activeTask.remainingTime) as NSDate?
+                
+                NotificationsController.sharedInstance.scheduleLocalNotification(forTask: activeTask)
+                
+                DatabaseController.persist()
+            }
         }
     }
     

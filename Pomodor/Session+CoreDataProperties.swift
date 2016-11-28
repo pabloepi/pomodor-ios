@@ -2,7 +2,7 @@
 //  Session+CoreDataProperties.swift
 //  Pomodor
 //
-//  Created by Pablo on 11/25/16.
+//  Created by Pablo on 11/27/16.
 //  Copyright © 2016 Pomodor. All rights reserved.
 //
 
